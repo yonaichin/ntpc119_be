@@ -10,8 +10,13 @@ gem 'simple_token_authentication', '~> 1.0'
 gem 'spring', :group => :development
 
 
-gem 'sqlite3'
-
+group :development do
+  gem 'sqlite3'
+end
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
 
 
 # To use ActiveModel has_secure_password
