@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+gem 'rack-cors', :require => 'rack/cors'
 gem 'rails', '4.1.6'
 
 gem 'rails-api', '0.3.1'
