@@ -1,9 +1,15 @@
 class ApplicationController < ActionController::API
   include ActionController::MimeResponds
   include ActionController::ImplicitRender
-   before_filter :configure_permitted_parameters, if: :devise_controller?
+   before_filter :set_cors_header, :configure_permitted_parameters, if: :devise_controller?
 
 
+   def set_cors_header
+    headers['Access-Control-Allow-Origin'] = '*'
+    headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET, OPTIONS'
+    headers['Access-Control-Request-Method'] = '*'
+    headers['Access-Control-Allow-Headers'] = '*'
+   end
    protected
 
    def configure_permitted_parameters
